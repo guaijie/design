@@ -14,7 +14,7 @@ public class UserServiceImpl implements IUserService {
 
     public User searchUser(long id){
 
-        User user= userdao.selectUserById(id);
+        User user = userdao.selectUserById(id);
 
         return user;
     }

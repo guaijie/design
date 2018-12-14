@@ -3,8 +3,6 @@ package com.graduation.controller;
 import com.graduation.entity.User;
 import com.graduation.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 
@@ -33,7 +31,7 @@ public class UserController {
             map.put("msg","Id不能为空！");
         }else{
             User user =userService.searchUser(Integer.parseInt(id_str));
-            if(user==null){
+            if(user ==null){
                 map.put("isSuccessful",false);
                 map.put("msg","用户不存在！");
             }else{
